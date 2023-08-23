@@ -35,10 +35,12 @@ export const getProductThunk = () => (dispatch) => {
 }
 
 export const getProductCategoryThunk = id => dispatch =>{
+    dispatch(setIsLoading(true))
     axios
         .get(`https://e-commerce-api-v2.academlo.tech/api/v1/products?categoryId=${id}`)
-        .catch(res => dispatch(setProduct(res.data)))
+        .then(res => dispatch(setProduct(res.data)))
         .catch(err => console.log(err))
+        .finally(() =>  dispatch(setIsLoading(false)))
 }
 
 export const { setProduct } = productSlice.actions;

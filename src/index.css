@@ -18,3 +18,10 @@ img{
 i{
     font-size: 1.5rem;
 }
+.cursor {
+    cursor: pointer;
+}
+.formPrice{
+    height: 17rem;
+    border: solid rgb(216, 214, 214) 1px;
+}
