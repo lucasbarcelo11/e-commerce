@@ -66,7 +66,9 @@ const Home = () => {
     <main>
       <Row>
         <Col md={4} lg={3}>
-          <FilterPrice/>
+          <FilterPrice
+          setFromTo={setFromTo}
+          />
           <ListGroup>
           <ListGroup.Item onClick={handleAllCategories} className="cursor">
             All categories 

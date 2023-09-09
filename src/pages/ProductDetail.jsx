@@ -22,7 +22,7 @@ const ProductDetail = () => {
   }, [id]);
 
   const getDetails = () => {
-    dispatch(setIsLoading(true))
+    dispatch(setIsLoading(true));
     axios
       .get(`https://e-commerce-api-v2.academlo.tech/api/v1/products/${id}`)
       .then((res) => {
@@ -53,7 +53,7 @@ const ProductDetail = () => {
   const addProduct = () => {
     const data = {
       quantity: rate,
-      productId: productDetails.id
+      productId: productDetails.id,
     };
     dispatch(addProductThunk(data));
   };
@@ -72,25 +72,40 @@ const ProductDetail = () => {
             return (
               <Carousel.Item className="text-center" key={elm?.id}>
                 <ImgProduct url={elm?.url} />
-                <Carousel.Caption>
-                  
-                </Carousel.Caption>
+                <Carousel.Caption></Carousel.Caption>
               </Carousel.Item>
             );
           })}
         </Carousel>
       </div>
-      <div className="col-5 mt-5">
-        <h1>{productDetails.title}</h1>
-        <p>Descripcion : {productDetails.description}</p>
+      <div className="col-5 mt-5 d-flex flex-column justify-content-between">
         <div>
-          <button onClick={decrement}>-</button>
-          {rate}
-          <button onClick={increment}>+</button>
+          <h1>{productDetails.title}</h1>
+          <p>Descripcion : {productDetails.description}</p>
         </div>
-        <Button variant="btn btn-outline-primary" onClick={addProduct}>
-             <i className='bx bx-cart' ></i>
-        </Button>{" "}
+
+        <div className="d-flex justify-content-between">
+          <div className="align-items-center d-flex">
+            <button
+              className=" btn btn-outline-dark px-3 "
+              onClick={decrement}
+            >
+              -
+            </button>
+            <span className="display-6 mx-3">{rate}</span>
+            <button
+              className=" btn btn-outline-dark px-3"
+              onClick={increment}
+            >
+              +
+            </button>
+          </div>
+          <div>
+            <Button variant="btn btn-outline-dark " onClick={addProduct}>
+              <i className="bx bx-cart"></i>
+            </Button>
+          </div>
+        </div>
       </div>
       {/*    <Row>
         <Col lg={9}>
