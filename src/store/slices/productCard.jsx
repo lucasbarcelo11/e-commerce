@@ -18,7 +18,7 @@ export const productCardSlice = createSlice({
 export const getProductsThunk = () => dispatch => {
     dispatch(setIsLoading(true))
     axios
-        .get('https://e-commerce-api-v2.academlo.tech/api/v1/cart', getConfig())
+        .get('https://e-commerce-jjbn.onrender.com/carts', getConfig())
         .then(res => dispatch(setProductCard(res.data)) )
         .catch(err => console.error(err))
         .finally(() => dispatch(setIsLoading(false)))
@@ -28,7 +28,7 @@ export const getProductsThunk = () => dispatch => {
 export const addProductThunk = data => dispatch => {
     dispatch(setIsLoading(true))
     axios
-        .post('https://e-commerce-api-v2.academlo.tech/api/v1/cart', data, getConfig())
+        .post('https://e-commerce-jjbn.onrender.com/carts', data, getConfig())
         .then( () => dispatch(getProductsThunk() ) )
         .catch(err => console.error(err))
         .finally(() => dispatch(setIsLoading(false)))
@@ -42,7 +42,7 @@ export const updateProductsThunk = (id, prdQuantity ) => dispatch => {
     }
 
     axios
-        .put(`https://e-commerce-api-v2.academlo.tech/api/v1/cart/${id}`, body, getConfig() )
+        .put(`https://e-commerce-jjbn.onrender.com/carts/${id}`, body, getConfig() )
         .then(() => dispatch(getProductsThunk()))
         .catch(err => console.error(err))
         .finally(() => dispatch(setIsLoading(false)))
@@ -53,7 +53,7 @@ export const updateProductsThunk = (id, prdQuantity ) => dispatch => {
 export const deleteProductsThunk = (id) => dispatch => {
     dispatch(setIsLoading(true))
     axios
-        .delete(`https://e-commerce-api-v2.academlo.tech/api/v1/cart/${id}`)
+        .delete(`https://e-commerce-jjbn.onrender.com/carts/${id}`)
         .then(() => dispatch(addProductThunk()) )
         .catch(err => console.error(err))
         .finally(() => dispatch(setIsLoading(false)))
@@ -62,7 +62,7 @@ export const deleteProductsThunk = (id) => dispatch => {
 export const purchasesCartThunk = () => dispatch => {
     dispatch(setIsLoading(true))
     axios
-        .post('https://e-commerce-api-v2.academlo.tech/api/v1/purchases', {}, getConfig())
+        .post('https://e-commerce-jjbn.onrender.com/purchases', {}, getConfig())
         .then(() => dispatch(getProductsThunk()))
         .catch(err => console.error(err))
         .finally(() => dispatch(setIsLoading(false)))

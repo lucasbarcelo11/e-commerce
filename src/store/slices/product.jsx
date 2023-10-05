@@ -28,7 +28,7 @@ export const getProductThunk = () => (dispatch) => {
     //Traer la info de los productos
     dispatch(setIsLoading(true))
     axios
-        .get('https://e-commerce-api-v2.academlo.tech/api/v1/products')
+        .get('https://e-commerce-jjbn.onrender.com/products')
         .then(res => dispatch(setProduct(res.data)) )
         .catch(err => console.log(err))
         .finally(() =>  dispatch(setIsLoading(false)))
@@ -37,7 +37,7 @@ export const getProductThunk = () => (dispatch) => {
 export const getProductCategoryThunk = id => dispatch =>{
     dispatch(setIsLoading(true))
     axios
-        .get(`https://e-commerce-api-v2.academlo.tech/api/v1/products?categoryId=${id}`)
+        .get(`https://e-commerce-jjbn.onrender.com/categories/${id}`)
         .then(res => dispatch(setProduct(res.data)))
         .catch(err => console.log(err))
         .finally(() =>  dispatch(setIsLoading(false)))

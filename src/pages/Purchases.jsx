@@ -15,7 +15,7 @@ const Purchases = () => {
     distatch(setIsLoading(true))
 
     axios
-      .get('https://e-commerce-api-v2.academlo.tech/api/v1/purchases', getConfig())
+      .get('https://e-commerce-jjbn.onrender.com/purchases', getConfig())
       .then(res => setPurchases(res.data))
       .catch(err => console.error(err))
       .finally(() => distatch(setIsLoading(false)))

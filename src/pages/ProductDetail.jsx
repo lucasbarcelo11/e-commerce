@@ -24,7 +24,7 @@ const ProductDetail = () => {
   const getDetails = () => {
     dispatch(setIsLoading(true));
     axios
-      .get(`https://e-commerce-api-v2.academlo.tech/api/v1/products/${id}`)
+      .get(`https://e-commerce-jjbn.onrender.com/products/${id}`)
       .then((res) => {
         console.log(res.data);
         setProductDetails(res.data);
